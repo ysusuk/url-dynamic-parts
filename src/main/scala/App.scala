@@ -1,9 +1,11 @@
 import scala.annotation.tailrec
 
-object Main extends App {
+object Main {
+  def main(args: Array[String]) = {
 
-  println(DynamicPartsNaive.find("/users/Ben/info/location", "/users/Lewis/info/birthday"))
-  println(DynamicParts.find("/users/Ben/info/location", "/users/Lewis/info/birthday"))
+    println(s"Naive - ${DynamicPartsNaive.find(args(0), args(1))}")
+    println(s"Simple - ${DynamicPartsSimple.find(args(0), args(1))}")
+  }
 }
 
 trait DynamicParts {
@@ -24,8 +26,7 @@ object DynamicPartsNaive extends DynamicParts {
 
 }
 
-// memory optimized
-object DynamicParts extends DynamicParts {
+object DynamicPartsSimple extends DynamicParts {
   val random = scala.util.Random
 
   def find(path1: String, path2: String): String = {
