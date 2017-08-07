@@ -14,10 +14,10 @@ object DynamicPartsNaive extends DynamicParts {
   val random = scala.util.Random
 
   def find(path1: String, path2: String): String = {
-    path1.split("/").zip(path2.split("/")).zipWithIndex.map { el =>
+    path1.split("/").zip(path2.split("/")).map { el =>
       el match {
-        case ((str1, str2), _) if str1 == str2 => str1
-        case ((_, _), idx) => s"*query_${random.nextPrintableChar()}*"
+        case (str1, str2) if str1 == str2 => str1
+        case (_, _) => s"*query_${random.nextPrintableChar()}*"
       }
     }.mkString("/")
   }
