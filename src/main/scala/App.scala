@@ -3,7 +3,7 @@ import scala.annotation.tailrec
 object Main {
   def main(args: Array[String]) = {
 
-    println(s"Naive - ${DynamicPartsNaive.find(args(0), args(1))}")
+    println(s"Naive  - ${DynamicPartsNaive.find(args(0), args(1))}")
     println(s"Simple - ${DynamicPartsSimple.find(args(0), args(1))}")
   }
 }
